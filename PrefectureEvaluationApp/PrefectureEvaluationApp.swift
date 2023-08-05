@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct PrefectureEvaluationAppApp: App {
+struct PrefectureEvaluationApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
