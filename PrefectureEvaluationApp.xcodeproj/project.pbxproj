@@ -18,6 +18,7 @@
 		35769E9C2A80D211008DC26C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769E9B2A80D211008DC26C /* User.swift */; };
 		35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769E9D2A80D242008DC26C /* Prefecture.swift */; };
 		35769EA02A80D2F6008DC26C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769E9F2A80D2F6008DC26C /* City.swift */; };
+		35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA22A80D544008DC26C /* ErrorDialogView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		35769E9B2A80D211008DC26C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		35769E9D2A80D242008DC26C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		35769E9F2A80D2F6008DC26C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
+		35769EA22A80D544008DC26C /* ErrorDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 		35769E962A80CFBC008DC26C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35769EA22A80D544008DC26C /* ErrorDialogView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				35769E9C2A80D211008DC26C /* User.swift in Sources */,
 				353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */,
 				35769EA02A80D2F6008DC26C /* City.swift in Sources */,
+				35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */,
 				35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */,
 				35769E9A2A80D076008DC26C /* Spot.swift in Sources */,
 				353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */,
