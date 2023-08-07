@@ -46,11 +46,7 @@ private struct StarReviewView: View{
     var body: some View{
         VStack {
             Text("評価").foregroundColor(.white).font(.system(size: 20)).padding(.bottom,5)
-            HStack{
-                ForEach(0..<5){ index in
-                    Image(systemName:  index < star ?  "star.fill" : "star" ).foregroundColor(Color.yellow).font(.system(size: 30))
-                }
-            }
+          StarView(star: star, size: 30)
         }.frame(width: 350, height: 80).background(.thinMaterial).cornerRadius(24).shadow(radius: 20)
     }
 }
@@ -64,8 +60,7 @@ private struct CommnetView :View{
     
     var body: some View{
         VStack{
-            Text("口コミ").frame(maxWidth: .infinity, alignment: .leading)
-            Text("三時間前").padding(.trailing, 250).padding(.bottom, 20)
+            Text("口コミ").frame(maxWidth: .infinity, alignment: .center).foregroundColor(Color.white).font(.system(size:20))
             Text("Hello, World!")
                      .frame(alignment: .leading)
              Spacer()
@@ -97,7 +92,8 @@ private struct CommentListTile :View{
     }
     var body: some View{
         VStack{
-            Text("")
+            StarView(star: star, size: 10)
+            Text(self.comment)
         }
     }
 }
