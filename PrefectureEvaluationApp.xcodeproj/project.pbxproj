@@ -26,6 +26,7 @@
 		35769EAE2A80DBC8008DC26C /* RaderChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EAD2A80DBC8008DC26C /* RaderChart.swift */; };
 		35769EB12A80DD4D008DC26C /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35769EB02A80DD4D008DC26C /* DGCharts */; };
 		35769EB32A80DF69008DC26C /* SerchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EB22A80DF69008DC26C /* SerchView.swift */; };
+		35769EB62A80E166008DC26C /* CityReviewViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EB52A80E166008DC26C /* CityReviewViewPage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		35769EAB2A80D922008DC26C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		35769EAD2A80DBC8008DC26C /* RaderChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaderChart.swift; sourceTree = "<group>"; };
 		35769EB22A80DF69008DC26C /* SerchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerchView.swift; sourceTree = "<group>"; };
+		35769EB52A80E166008DC26C /* CityReviewViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityReviewViewPage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				35769EA92A80D898008DC26C /* MapViewPage.swift */,
 				35769EA62A80D834008DC26C /* ReviewPage.swift */,
+				35769EB52A80E166008DC26C /* CityReviewViewPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 				35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */,
 				35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */,
 				35769EB32A80DF69008DC26C /* SerchView.swift in Sources */,
+				35769EB62A80E166008DC26C /* CityReviewViewPage.swift in Sources */,
 				35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */,
 				35769E9A2A80D076008DC26C /* Spot.swift in Sources */,
 				35769EA72A80D834008DC26C /* ReviewPage.swift in Sources */,
