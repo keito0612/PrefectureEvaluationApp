@@ -19,6 +19,10 @@
 		35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769E9D2A80D242008DC26C /* Prefecture.swift */; };
 		35769EA02A80D2F6008DC26C /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769E9F2A80D2F6008DC26C /* City.swift */; };
 		35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA22A80D544008DC26C /* ErrorDialogView.swift */; };
+		35769EA52A80D6DC008DC26C /* PlaceAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA42A80D6DC008DC26C /* PlaceAnnotationView.swift */; };
+		35769EA72A80D834008DC26C /* ReviewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA62A80D834008DC26C /* ReviewPage.swift */; };
+		35769EAA2A80D898008DC26C /* MapViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA92A80D898008DC26C /* MapViewPage.swift */; };
+		35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EAB2A80D922008DC26C /* MapViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 		35769E9D2A80D242008DC26C /* Prefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefecture.swift; sourceTree = "<group>"; };
 		35769E9F2A80D2F6008DC26C /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		35769EA22A80D544008DC26C /* ErrorDialogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDialogView.swift; sourceTree = "<group>"; };
+		35769EA42A80D6DC008DC26C /* PlaceAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceAnnotationView.swift; sourceTree = "<group>"; };
+		35769EA62A80D834008DC26C /* ReviewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewPage.swift; sourceTree = "<group>"; };
+		35769EA92A80D898008DC26C /* MapViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewPage.swift; sourceTree = "<group>"; };
+		35769EAB2A80D922008DC26C /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +151,7 @@
 		35769E952A80CFA5008DC26C /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				35769EAB2A80D922008DC26C /* MapViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -150,7 +159,10 @@
 		35769E962A80CFBC008DC26C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				35769EA82A80D865008DC26C /* Page */,
 				35769EA22A80D544008DC26C /* ErrorDialogView.swift */,
+				35769EA42A80D6DC008DC26C /* PlaceAnnotationView.swift */,
+				35769EA62A80D834008DC26C /* ReviewPage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -164,6 +176,14 @@
 				35769E9F2A80D2F6008DC26C /* City.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		35769EA82A80D865008DC26C /* Page */ = {
+			isa = PBXGroup;
+			children = (
+				35769EA92A80D898008DC26C /* MapViewPage.swift */,
+			);
+			path = Page;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,13 +316,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35769EAA2A80D898008DC26C /* MapViewPage.swift in Sources */,
 				35769E9C2A80D211008DC26C /* User.swift in Sources */,
 				353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */,
 				35769EA02A80D2F6008DC26C /* City.swift in Sources */,
 				35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */,
+				35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */,
 				35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */,
 				35769E9A2A80D076008DC26C /* Spot.swift in Sources */,
+				35769EA72A80D834008DC26C /* ReviewPage.swift in Sources */,
 				353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */,
+				35769EA52A80D6DC008DC26C /* PlaceAnnotationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
