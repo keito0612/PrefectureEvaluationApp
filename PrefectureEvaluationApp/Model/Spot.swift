@@ -6,11 +6,8 @@
 //
 
 import Foundation
-
-
 import Foundation
 import CoreLocation
-
 struct Spot: Identifiable {
     let id = UUID()
     let prefectureName :String

@@ -6,9 +6,9 @@
 //
 
 import Foundation
-
+import FirebaseFirestoreSwift
 struct Prefecture: Identifiable {
-    let id = UUID()
+    @DocumentID var id: String?
     let star : Int
     let citys : Array<String>?
     init(star: Int ,citys:Array<String>?) {
