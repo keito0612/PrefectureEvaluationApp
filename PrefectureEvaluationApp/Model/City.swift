@@ -6,14 +6,13 @@
 //
 
 import Foundation
-
-struct City:Identifiable{
-    let id: UUID?
-    let PrefectureName :String?
-    let Citys: Array<String?>
-    init(id: UUID?, PrefectureName: String, Citys: Array<String>) {
-        self.id = id
-        self.PrefectureName = PrefectureName
-        self.Citys = Citys
+import FirebaseFirestoreSwift
+struct City:Identifiable, Codable{
+    @DocumentID var id: String?
+    let star: Int
+    let comment: String
+    init(star: Int, comment: String) {
+        self.star = star
+        self.comment = comment
     }
 }

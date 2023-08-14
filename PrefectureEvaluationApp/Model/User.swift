@@ -6,14 +6,13 @@
 //
 
 import Foundation
-
+import FirebaseFirestoreSwift
 struct User: Identifiable {
-    let id : Int?
+    @DocumentID var id: String?
     let name : String?
     let email: String?
     let password: String?
-    init(id:Int ,name:String, email: String, password: String) {
-        self.id = id
+    init(name:String, email: String, password: String) {
         self.name = name
         self.email = email
         self.password = password
