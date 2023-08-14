@@ -20,6 +20,7 @@
 		3525A1152A877A1F0011A139 /* FirebaseErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1142A877A1F0011A139 /* FirebaseErrorHandler.swift */; };
 		3525A1172A889EC60011A139 /* ErrorAlertControllerWithTextFieldContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1162A889EC60011A139 /* ErrorAlertControllerWithTextFieldContainer.swift */; };
 		3525A11A2A88A37C0011A139 /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1192A88A37C0011A139 /* ErrorAlert.swift */; };
+		3525A11C2A8A289E0011A139 /* CityCommentViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A11B2A8A289E0011A139 /* CityCommentViewPage.swift */; };
 		353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */; };
 		353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA04B2A7E7FB800928A60 /* ContentView.swift */; };
 		353BA04E2A7E7FB900928A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353BA04D2A7E7FB900928A60 /* Assets.xcassets */; };
@@ -68,6 +69,7 @@
 		3525A1142A877A1F0011A139 /* FirebaseErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseErrorHandler.swift; sourceTree = "<group>"; };
 		3525A1162A889EC60011A139 /* ErrorAlertControllerWithTextFieldContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlertControllerWithTextFieldContainer.swift; sourceTree = "<group>"; };
 		3525A1192A88A37C0011A139 /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
+		3525A11B2A8A289E0011A139 /* CityCommentViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCommentViewPage.swift; sourceTree = "<group>"; };
 		353BA0462A7E7FB800928A60 /* PrefectureEvaluationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefectureEvaluationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureEvaluationApp.swift; sourceTree = "<group>"; };
 		353BA04B2A7E7FB800928A60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */,
 				353BA04B2A7E7FB800928A60 /* ContentView.swift */,
 				3525A1142A877A1F0011A139 /* FirebaseErrorHandler.swift */,
+				3525A1182A88A2DA0011A139 /* Controller */,
 				353BA04D2A7E7FB900928A60 /* Assets.xcassets */,
 				35769EBF2A83F79F008DC26C /* GoogleService-Info.plist */,
 				353BA04F2A7E7FB900928A60 /* Preview Content */,
@@ -219,6 +222,7 @@
 				35769EB22A80DF69008DC26C /* SerchView.swift */,
 				35769EB72A80E90D008DC26C /* StarView.swift */,
 				3525A1122A8666250011A139 /* LoadingView.swift */,
+				3525A1192A88A37C0011A139 /* ErrorAlert.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,11 +242,10 @@
 		35769EA82A80D865008DC26C /* Page */ = {
 			isa = PBXGroup;
 			children = (
-				3525A1182A88A2DA0011A139 /* Controller */,
 				35769EA92A80D898008DC26C /* MapViewPage.swift */,
 				35769EA62A80D834008DC26C /* ReviewPage.swift */,
 				35769EB52A80E166008DC26C /* CityReviewViewPage.swift */,
-				3525A1192A88A37C0011A139 /* ErrorAlert.swift */,
+				3525A11B2A8A289E0011A139 /* CityCommentViewPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				35769E9E2A80D242008DC26C /* Prefecture.swift in Sources */,
 				35769EB82A80E90D008DC26C /* StarView.swift in Sources */,
 				35769EBA2A826844008DC26C /* Comment.swift in Sources */,
+				3525A11C2A8A289E0011A139 /* CityCommentViewPage.swift in Sources */,
 				35769E9A2A80D076008DC26C /* Spot.swift in Sources */,
 				35769EA72A80D834008DC26C /* ReviewPage.swift in Sources */,
 				353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */,
