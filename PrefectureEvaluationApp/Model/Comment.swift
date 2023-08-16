@@ -10,11 +10,11 @@ import FirebaseFirestoreSwift
 struct Comment:Identifiable {
     @DocumentID var id: String?
     let star :Int
-    let title:String
-    let comment:String
-    init(star: Int, title: String, comment: String) {
+    let goodOfficeComent:String
+    let badOfficeComment:String
+    init(star: Int,goodOfficeComent: String, badOfficeComment: String) {
         self.star = star
-        self.title = title
-        self.comment = comment
+        self.goodOfficeComent = goodOfficeComent
+        self.badOfficeComment = badOfficeComment
     }
 }
