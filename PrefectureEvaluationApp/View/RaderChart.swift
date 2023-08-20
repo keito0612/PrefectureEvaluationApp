@@ -17,7 +17,7 @@ struct RadarChart: UIViewRepresentable {
     
     
     func makeUIView(context: Context) -> RadarChartView {
-        let chartView = RadarChartView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
+        let chartView = RadarChartView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))
         let chartFormatter = RadarChartFormatter(labels: activities)
         chartView.rotationEnabled = false
         chartView.chartDescription.enabled = false
@@ -26,6 +26,7 @@ struct RadarChart: UIViewRepresentable {
         chartView.webColor = .lightGray
         chartView.innerWebColor = .lightGray
         chartView.webAlpha = 1
+        chartView.minOffset = 0
         
         let xAxis = chartView.xAxis
         
@@ -40,7 +41,7 @@ struct RadarChart: UIViewRepresentable {
         
 
         let yAxis = chartView.yAxis
-        yAxis.labelFont = .systemFont(ofSize: 9, weight: .light)
+        yAxis.labelFont = .systemFont(ofSize: 15, weight: .light)
         yAxis.labelTextColor = UIColor(cgColor: UIColor.white.cgColor)
         yAxis.axisMinimum = 0
         yAxis.axisMaximum = 5
@@ -49,7 +50,7 @@ struct RadarChart: UIViewRepresentable {
 
         let l = chartView.legend
         l.horizontalAlignment = .center
-        l.verticalAlignment = .bottom
+        l.verticalAlignment = .top
         l.orientation = .horizontal
         l.drawInside = false
         l.font = .systemFont(ofSize: 10, weight: .light)
