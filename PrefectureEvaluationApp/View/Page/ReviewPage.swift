@@ -35,7 +35,7 @@ struct ReViewPage: View {
 
 private struct ReviewRaderView: View{
     var body: some View{
-        RadarChart().frame(width: 350,height: 400) .background(.ultraThinMaterial).cornerRadius(24)
+        RadarChart().frame(width: 370,height: 400) .background(.ultraThinMaterial).cornerRadius(24)
     }
 }
 private struct CitysButtom: View{
@@ -53,12 +53,11 @@ private struct CitysButtom: View{
                                       RoundedRectangle(cornerRadius: 20)
                                           .stroke(Color.blue, lineWidth: 3)
                                     )
-                                    
                                 }
                             }.navigationBarTitleDisplayMode(.inline)
                         }
                     }
-            }.font(.system(size: 20)).frame(width: 350,height: 250).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20).padding(.all)
+            }.font(.system(size: 20)).frame(width: 370,height: 250).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20).padding(.all)
         }
     }
     
@@ -72,7 +71,7 @@ private struct CitysButtom: View{
                         Image(systemName:  index < star ?  "star.fill" : "star" ).foregroundColor(Color.yellow).font(.system(size: 30))
                     }
                 }
-            }.frame(width: 350, height: 80).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20)
+            }.frame(width: 370, height: 80).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20)
         }
     }
     
