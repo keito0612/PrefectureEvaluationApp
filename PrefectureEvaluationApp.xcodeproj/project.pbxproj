@@ -27,6 +27,7 @@
 		3525A1252A8F01590011A139 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1242A8F01590011A139 /* Photo.swift */; };
 		3525A12A2A8F1E9B0011A139 /* CityCommentScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1292A8F1E9B0011A139 /* CityCommentScreenView.swift */; };
 		3525A12C2A8FD49F0011A139 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A12B2A8FD49F0011A139 /* ImagePicker.swift */; };
+		3525A1342A9750CC0011A139 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3525A1332A9750CC0011A139 /* DGCharts */; };
 		353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */; };
 		353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA04B2A7E7FB800928A60 /* ContentView.swift */; };
 		353BA04E2A7E7FB900928A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353BA04D2A7E7FB900928A60 /* Assets.xcassets */; };
@@ -44,7 +45,6 @@
 		35769EAA2A80D898008DC26C /* MapViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EA92A80D898008DC26C /* MapViewPage.swift */; };
 		35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EAB2A80D922008DC26C /* MapViewModel.swift */; };
 		35769EAE2A80DBC8008DC26C /* RaderChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EAD2A80DBC8008DC26C /* RaderChart.swift */; };
-		35769EB12A80DD4D008DC26C /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 35769EB02A80DD4D008DC26C /* DGCharts */; };
 		35769EB32A80DF69008DC26C /* SerchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EB22A80DF69008DC26C /* SerchView.swift */; };
 		35769EB62A80E166008DC26C /* CityReviewViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EB52A80E166008DC26C /* CityReviewViewPage.swift */; };
 		35769EB82A80E90D008DC26C /* StarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35769EB72A80E90D008DC26C /* StarView.swift */; };
@@ -117,11 +117,11 @@
 			files = (
 				3525A1092A8649060011A139 /* FirebaseDatabaseSwift in Frameworks */,
 				3525A1072A8649060011A139 /* FirebaseDatabase in Frameworks */,
+				3525A1342A9750CC0011A139 /* DGCharts in Frameworks */,
 				3525A1112A8649060011A139 /* FirebaseStorageCombine-Community in Frameworks */,
 				3525A10F2A8649060011A139 /* FirebaseStorage in Frameworks */,
 				3525A1032A8649060011A139 /* FirebaseAnalyticsSwift in Frameworks */,
 				3525A1012A8649060011A139 /* FirebaseAnalytics in Frameworks */,
-				35769EB12A80DD4D008DC26C /* DGCharts in Frameworks */,
 				3525A1052A8649060011A139 /* FirebaseAuth in Frameworks */,
 				3525A10B2A8649060011A139 /* FirebaseFirestore in Frameworks */,
 				3525A10D2A8649060011A139 /* FirebaseFirestoreSwift in Frameworks */,
@@ -293,7 +293,6 @@
 			);
 			name = PrefectureEvaluationApp;
 			packageProductDependencies = (
-				35769EB02A80DD4D008DC26C /* DGCharts */,
 				3525A1002A8649060011A139 /* FirebaseAnalytics */,
 				3525A1022A8649060011A139 /* FirebaseAnalyticsSwift */,
 				3525A1042A8649060011A139 /* FirebaseAuth */,
@@ -303,6 +302,7 @@
 				3525A10C2A8649060011A139 /* FirebaseFirestoreSwift */,
 				3525A10E2A8649060011A139 /* FirebaseStorage */,
 				3525A1102A8649060011A139 /* FirebaseStorageCombine-Community */,
+				3525A1332A9750CC0011A139 /* DGCharts */,
 			);
 			productName = PrefectureEvaluationApp;
 			productReference = 353BA0462A7E7FB800928A60 /* PrefectureEvaluationApp.app */;
@@ -377,8 +377,8 @@
 			);
 			mainGroup = 353BA03D2A7E7FB800928A60;
 			packageReferences = (
-				35769EAF2A80DD4D008DC26C /* XCRemoteSwiftPackageReference "Charts" */,
 				3525A0FF2A8649060011A139 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				3525A1322A9750CC0011A139 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 353BA0472A7E7FB800928A60 /* Products */;
 			projectDirPath = "";
@@ -785,7 +785,7 @@
 				minimumVersion = 10.0.0;
 			};
 		};
-		35769EAF2A80DD4D008DC26C /* XCRemoteSwiftPackageReference "Charts" */ = {
+		3525A1322A9750CC0011A139 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -841,9 +841,9 @@
 			package = 3525A0FF2A8649060011A139 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
 		};
-		35769EB02A80DD4D008DC26C /* DGCharts */ = {
+		3525A1332A9750CC0011A139 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 35769EAF2A80DD4D008DC26C /* XCRemoteSwiftPackageReference "Charts" */;
+			package = 3525A1322A9750CC0011A139 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
