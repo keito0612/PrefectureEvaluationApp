@@ -28,6 +28,7 @@
 		3525A12A2A8F1E9B0011A139 /* CityCommentScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1292A8F1E9B0011A139 /* CityCommentScreenView.swift */; };
 		3525A12C2A8FD49F0011A139 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A12B2A8FD49F0011A139 /* ImagePicker.swift */; };
 		3525A1342A9750CC0011A139 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3525A1332A9750CC0011A139 /* DGCharts */; };
+		3525A1362A98902F0011A139 /* RatingStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1352A98902E0011A139 /* RatingStarView.swift */; };
 		353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */; };
 		353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA04B2A7E7FB800928A60 /* ContentView.swift */; };
 		353BA04E2A7E7FB900928A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353BA04D2A7E7FB900928A60 /* Assets.xcassets */; };
@@ -82,6 +83,7 @@
 		3525A1242A8F01590011A139 /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		3525A1292A8F1E9B0011A139 /* CityCommentScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCommentScreenView.swift; sourceTree = "<group>"; };
 		3525A12B2A8FD49F0011A139 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		3525A1352A98902E0011A139 /* RatingStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarView.swift; sourceTree = "<group>"; };
 		353BA0462A7E7FB800928A60 /* PrefectureEvaluationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefectureEvaluationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureEvaluationApp.swift; sourceTree = "<group>"; };
 		353BA04B2A7E7FB800928A60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				3525A1192A88A37C0011A139 /* ErrorAlert.swift */,
 				3525A11D2A8AF3A50011A139 /* TextEditorWithPlaceholder.swift */,
 				3525A12B2A8FD49F0011A139 /* ImagePicker.swift */,
+				3525A1352A98902E0011A139 /* RatingStarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				3525A1252A8F01590011A139 /* Photo.swift in Sources */,
 				3525A11E2A8AF3A50011A139 /* TextEditorWithPlaceholder.swift in Sources */,
 				3525A1222A8CCCBE0011A139 /* CityCommentPostModel.swift in Sources */,
+				3525A1362A98902F0011A139 /* RatingStarView.swift in Sources */,
 				35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */,
 				35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */,
 				3525A11A2A88A37C0011A139 /* ErrorAlert.swift in Sources */,
