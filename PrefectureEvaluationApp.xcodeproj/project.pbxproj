@@ -29,6 +29,8 @@
 		3525A12C2A8FD49F0011A139 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A12B2A8FD49F0011A139 /* ImagePicker.swift */; };
 		3525A1342A9750CC0011A139 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 3525A1332A9750CC0011A139 /* DGCharts */; };
 		3525A1362A98902F0011A139 /* RatingStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1352A98902E0011A139 /* RatingStarView.swift */; };
+		3525A1382A9956440011A139 /* ProfileViewPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A1372A9956440011A139 /* ProfileViewPage.swift */; };
+		3525A13C2A9B99E20011A139 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3525A13B2A9B99E20011A139 /* SignInView.swift */; };
 		353BA04A2A7E7FB800928A60 /* PrefectureEvaluationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */; };
 		353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BA04B2A7E7FB800928A60 /* ContentView.swift */; };
 		353BA04E2A7E7FB900928A60 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 353BA04D2A7E7FB900928A60 /* Assets.xcassets */; };
@@ -84,6 +86,8 @@
 		3525A1292A8F1E9B0011A139 /* CityCommentScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCommentScreenView.swift; sourceTree = "<group>"; };
 		3525A12B2A8FD49F0011A139 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		3525A1352A98902E0011A139 /* RatingStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarView.swift; sourceTree = "<group>"; };
+		3525A1372A9956440011A139 /* ProfileViewPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewPage.swift; sourceTree = "<group>"; };
+		3525A13B2A9B99E20011A139 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		353BA0462A7E7FB800928A60 /* PrefectureEvaluationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrefectureEvaluationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		353BA0492A7E7FB800928A60 /* PrefectureEvaluationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrefectureEvaluationApp.swift; sourceTree = "<group>"; };
 		353BA04B2A7E7FB800928A60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -251,6 +255,7 @@
 				3525A11D2A8AF3A50011A139 /* TextEditorWithPlaceholder.swift */,
 				3525A12B2A8FD49F0011A139 /* ImagePicker.swift */,
 				3525A1352A98902E0011A139 /* RatingStarView.swift */,
+				3525A13B2A9B99E20011A139 /* SignInView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -275,6 +280,7 @@
 				35769EA62A80D834008DC26C /* ReviewPage.swift */,
 				35769EB52A80E166008DC26C /* CityReviewViewPage.swift */,
 				3525A11B2A8A289E0011A139 /* CityCommentViewPage.swift */,
+				3525A1372A9956440011A139 /* ProfileViewPage.swift */,
 			);
 			path = Page;
 			sourceTree = "<group>";
@@ -427,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				35769EAE2A80DBC8008DC26C /* RaderChart.swift in Sources */,
+				3525A1382A9956440011A139 /* ProfileViewPage.swift in Sources */,
 				35769EAA2A80D898008DC26C /* MapViewPage.swift in Sources */,
 				35769E9C2A80D211008DC26C /* User.swift in Sources */,
 				353BA04C2A7E7FB800928A60 /* ContentView.swift in Sources */,
@@ -435,6 +442,7 @@
 				3525A1252A8F01590011A139 /* Photo.swift in Sources */,
 				3525A11E2A8AF3A50011A139 /* TextEditorWithPlaceholder.swift in Sources */,
 				3525A1222A8CCCBE0011A139 /* CityCommentPostModel.swift in Sources */,
+				3525A13C2A9B99E20011A139 /* SignInView.swift in Sources */,
 				3525A1362A98902F0011A139 /* RatingStarView.swift in Sources */,
 				35769EA32A80D544008DC26C /* ErrorDialogView.swift in Sources */,
 				35769EAC2A80D922008DC26C /* MapViewModel.swift in Sources */,
