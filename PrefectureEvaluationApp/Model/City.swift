@@ -9,9 +9,9 @@ import Foundation
 import FirebaseFirestoreSwift
 struct City:Identifiable, Codable{
     @DocumentID var id: String?
-    let star: Int
+    let star: Double
     let comment: String
-    init(star: Int, comment: String) {
+    init(star: Double, comment: String) {
         self.star = star
         self.comment = comment
     }

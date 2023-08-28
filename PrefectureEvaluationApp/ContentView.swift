@@ -8,19 +8,47 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selection = 0
+    init(){
+        UITabBar.appearance().backgroundColor = .white
+    }
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        ZStack{
+            TabView (selection: $selection){
+                MapViewPage()
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .tabItem {
+                        Image(systemName: "map.fill")
+                        Text("マップ")
+                    }.tag(0)
+                
+                Text("Bookmark Tab")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .tabItem {
+                        Image(systemName: "bookmark.circle.fill")
+                        Text("Bookmark")
+                    }.tag(1)
+                
+                Text("Video Tab")
+                    .font(.system(size: 30, weight: .bold, design: .rounded))
+                    .tabItem {
+                        Image(systemName: "video.circle.fill")
+                        Text("Video")
+                    }.tag(2)
+                
+                ProfileViewPage()
+                    .font(.system(size: 20, weight: .bold, design: .rounded))
+                    .tabItem {
+                        Image(systemName: "person.crop.circle")
+                        Text("Profile")
+                    }.tag(3)
+            }.background(Color.white)
         }
-        .padding()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(CityCommentPostViewModel())
     }
 }
