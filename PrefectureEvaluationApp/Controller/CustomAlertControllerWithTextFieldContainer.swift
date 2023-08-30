@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct ErrorAlertControllerWithTextFieldContainer: UIViewControllerRepresentable {
-    
+struct CustomAlertControllerWithTextFieldContainer: UIViewControllerRepresentable {
+    @Environment(\.dismiss) var dismiss
     @Binding var isPresented: Bool
 
     let title: String?
     let message: String?
+    let alertType: AlertType
 
     func makeUIViewController(context: Context) -> UIViewController {
         return UIViewController()
@@ -23,16 +24,20 @@ struct ErrorAlertControllerWithTextFieldContainer: UIViewControllerRepresentable
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
 
         let alert = UIAlertController(title: title ,message: message, preferredStyle: .alert)
-        alert.setValue(NSAttributedString(string: title!, attributes: [.foregroundColor : UIColor.red]), forKey: "attributedTitle")
+        alert.setValue(NSAttributedString(string: title!, attributes: [.foregroundColor : alertType == .warning ? UIColor.black :     UIColor.red]), forKey: "attributedTitle")
         // Okボタンアクション
         let doneAction = UIAlertAction(title: "OK", style: .default) { _ in
             alert.dismiss(animated: true){
                 self.isPresented = false
+                if(alertType == .warning){
+                    self.dismiss()
+                    self.dismiss()
+                }
             }
         }
         
         alert.addAction(doneAction)
-
+        
         DispatchQueue.main.async {
             uiViewController.present(alert, animated: true) {
                 isPresented = false

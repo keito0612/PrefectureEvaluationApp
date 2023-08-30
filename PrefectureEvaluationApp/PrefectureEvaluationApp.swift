@@ -25,7 +25,7 @@ struct PrefectureEvaluationApp: App {
     }
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(CityCommentPostViewModel())
         }
     }
 }

@@ -6,35 +6,43 @@
 //
 
 extension View {
-    func errorAlert( title: String?, message: String?, isPresented: Binding<Bool>) -> some View {
-        self.modifier(ErrorAlert(
+    func customAlert( title: String?, message: String?, isPresented: Binding<Bool>,alertType:AlertType) -> some View {
+        self.modifier(CustomAlert(
             isPresented: isPresented,
             title: title,
-            message: message
-            
+            message: message,
+            alertType: alertType
         ))
     }
 }
 
 
-import SwiftUI
+ enum AlertType {
+    case warning
+    case error
+}
 
-struct ErrorAlert: ViewModifier {
+
+import SwiftUI
+struct CustomAlert: ViewModifier {
     
     @Binding var isPresented: Bool
 
     let title: String?
     let message: String?
+    let alertType:AlertType
 
     func body(content: Content) -> some View {
         ZStack {
             content
 
             if isPresented {
-                ErrorAlertControllerWithTextFieldContainer(
+                CustomAlertControllerWithTextFieldContainer(
                                                       isPresented: $isPresented,
                                                       title: title,
-                                                      message: message)
+                                                      message: message,
+                                                      alertType: alertType
+                )
             }
         }
     }

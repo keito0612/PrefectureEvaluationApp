@@ -16,7 +16,6 @@ struct ContentView: View {
         ZStack{
             TabView (selection: $selection){
                 MapViewPage()
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
                     .tabItem {
                         Image(systemName: "map.fill")
                         Text("マップ")
@@ -37,10 +36,9 @@ struct ContentView: View {
                     }.tag(2)
                 
                 ProfileViewPage()
-                    .font(.system(size: 20, weight: .bold, design: .rounded))
                     .tabItem {
                         Image(systemName: "person.crop.circle")
-                        Text("Profile")
+                        Text("プロフィール")
                     }.tag(3)
             }.background(Color.white)
         }

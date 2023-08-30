@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseAuth
 
 public enum AuthError: Error {
     // ネットワークエラー
@@ -30,7 +31,7 @@ public enum AuthError: Error {
         case .networkError:
             return "通信エラーです。"
         case .weakPassword:
-            return "パスワードが脆弱です。"
+            return "パスワードは８文字以上でお願いします。"
         case .wrongPassword:
             return "メールアドレス、もしくはパスワードが違います。"
         case .userNotFound:
@@ -105,7 +106,7 @@ public enum FireStoreError: Error {
 
 class FirebaseErrorHandler{
     
-    static  func AuthErrorToString(error: AuthError) -> String {
+    static  func authErrorToString(error: AuthErrorCode.Code) -> String {
         switch error {
         case .networkError:
             return AuthError.networkError.title
@@ -119,7 +120,7 @@ class FirebaseErrorHandler{
             return  AuthError.invalidEmail.title
         case .emailAlreadyInUse:
             return  AuthError.emailAlreadyInUse.title
-        case .unknown:
+        default:
             return AuthError.unknown.title
         }
     }
