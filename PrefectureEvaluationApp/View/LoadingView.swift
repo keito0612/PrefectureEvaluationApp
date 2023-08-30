@@ -21,8 +21,8 @@ struct LoadingView: View {
                 .fontWeight(.bold)
                 .foregroundColor(.white)
                 .font(.title)
-        }
-        .frame(maxWidth: .infinity, maxHeight: .infinity).background(Color.gray.opacity(0.5))
+        }.frame(maxWidth: .infinity, maxHeight: .infinity).background(Color.gray.opacity(0.5))
+        
 
     }
 }
