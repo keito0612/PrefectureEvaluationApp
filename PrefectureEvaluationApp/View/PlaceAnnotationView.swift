@@ -11,7 +11,8 @@ struct PlaceAnnotationView: View {
   @State private var sheet = false
   let prefectureName: String
   let citys: Array<String>
-  
+    
+    
   var body: some View {
     VStack(spacing: 0) {
         Button(prefectureName) {

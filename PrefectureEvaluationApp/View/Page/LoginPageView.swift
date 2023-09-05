@@ -17,15 +17,16 @@ struct LoginPageView: View {
                     EmailWithPasswordTextField(email: $model.email , password: $model.password)
                     LoginButton(model: model)
                     SinUpTextButton()
-                }.frame(width: 400, height: 350).background(Color.blue).cornerRadius(30).navigationTitle("ログイン").navigationBarTitleDisplayMode(.inline).navigationBarItems(
-                    leading: Button("戻る") {
-                        dismiss()
-                    }
-                ).customAlert(title: model.alertType == .error ?  "エラーが発生しました。": "ログインが完了しました。" , message: model.alertMessage, isPresented: $model.isShowAlert, alertType: model.alertType )
+                }.frame(width: 350, height: 400).background(Color.blue).cornerRadius(30)
+                    .padding()
+                .customAlert(title: model.alertType == .error ?  "エラーが発生しました。": "ログインが完了しました。" , message: model.alertMessage, isPresented: $model.isShowAlert, dissmissCount: 1, alertType: model.alertType )
                 if(model.loginModelState == .isLoading){
                     LoadingView(scaleEffect: 2.0)
                 }
-            }
+            }.navigationTitle("ログイン").navigationBarTitleDisplayMode(.inline).navigationBarItems(
+                leading: Button("戻る") {
+                    dismiss()
+                })
         }
     }
 }
@@ -36,11 +37,11 @@ struct EmailWithPasswordTextField : View{
     var body: some View{
         VStack{
             TextField("メールアドレス",text: $email)
-                .font(.system(size: 25))
+                .font(.system(size: 20))
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
             SecureField("パスワード",text:$password)
-                .font(.system(size: 25))
+                .font(.system(size: 20))
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
         }
@@ -48,7 +49,7 @@ struct EmailWithPasswordTextField : View{
 }
 
 struct LoginButton :View{
-   @State  var model: LoginModel
+   @ObservedObject  var model: LoginModel
     var body: some View{
         Button(action: {
             Task{

@@ -9,17 +9,30 @@ import SwiftUI
 
 struct SinUpViewPage: View {
     @StateObject private var model = SinUpModel()
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         NavigationStack {
             ZStack{
                 VStack{
                     SinUpEmailWithPasswordTextField(model:model)
                     SinUpButton(model: model)
-                }.frame(width: 400, height: 350).background(Color.blue).cornerRadius(30).navigationTitle("新規登録").navigationBarTitleDisplayMode(.inline)
+                }.frame(width: 350, height: 400).background(Color.blue).cornerRadius(30).navigationTitle("新規登録").navigationBarTitleDisplayMode(.inline).alert(isPresented: $model.isShowAlert) {
+                    switch model.alertType {
+                    case .warning:
+                        return Alert(title: Text(model.alertTitle),
+                                     message:  Text(model.alertMessage),
+                                     dismissButton: .default(Text("OK")){
+                            dismiss()
+                        })
+                    case .error:
+                        return Alert(title: Text(model.alertTitle),message: Text(model.alertMessage),
+                                   dismissButton: .default(Text("OK")))
+                    }
+                  }
                 if(model.sinUpModelState == .isLoading ){
                     LoadingView(scaleEffect: 3)
                 }
-            }.customAlert(title: model.alertType == .warning ? model.alertMessage :"エラーが発生しました。", message: model.alertType == .error ?     model.alertMessage : "", isPresented: $model.isShowAlert, alertType: model.alertType)
+            }
         }
     }
 }
@@ -39,7 +52,6 @@ private struct SinUpEmailWithPasswordTextField : View{
                 .font(.system(size: 25))
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .padding()
-            Text("").foregroundColor(.red)
         }
     }
 }
@@ -54,7 +66,7 @@ private struct SinUpButton :View{
                 try await model.sinUp()
             }
         }){
-            Text("ログイン").frame(width: 100 ,height: 50).background(.blue) .foregroundColor(.white).cornerRadius(30).shadow(radius: 30).overlay(
+            Text("新規登録").frame(width: 100 ,height: 50).background(.blue) .foregroundColor(.white).cornerRadius(30).shadow(radius: 30).overlay(
                 RoundedRectangle(cornerRadius: 24)
                     .stroke(Color(.white), lineWidth: 3.0)
             )
