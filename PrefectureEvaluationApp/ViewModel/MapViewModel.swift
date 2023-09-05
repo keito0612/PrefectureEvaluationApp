@@ -28,7 +28,7 @@ class MapViewModel:NSObject, ObservableObject, CLLocationManagerDelegate {
         latitudinalMeters: 1000000.0,
         longitudinalMeters: 1000000.0
     )
-   @Published var mapViewState = MapViewState.isLoading
+    var mapViewState = MapViewState.isLoading
     let spotList :Array<Spot> = [Spot(prefectureName: "北海道", latitude: 43.0352, longitude: 141.2172, citys:["札幌市", "旭川市", "函館市", "小樽市", "室蘭市", "釧路市", "帯広市", "北見市", "夕張市", "岩見沢市", "網走市", "留萌市", "苫小牧市","稚内市", "美唄市","芦別市","江別市","赤平市","紋別市","士別市","名寄市","三笠市" ,"根室市", "千歳市","滝川市","砂川市","歌志内市","深川市","富良野市","登別市","恵庭市","伊達市","北広島市","石狩市","北杜市"]),
                                  Spot(prefectureName: "青森県", latitude: 40.4928, longitude: 140.4424, citys:[ "青森市", "弘前市", "八戸市", "黒石市", "十和田市", "三沢市", "むつ市", "つがる市", "平川市", "大鰐町", "東津軽郡", "西津軽郡", "南津軽郡", "中津軽郡", "上北郡", "下北郡"]),
                                  Spot(prefectureName: "岩手県", latitude: 39.4213, longitude: 141.091, citys:  ["盛岡市", "宮古市", "大船渡市", "花巻市", "北上市", "水沢市", "奥州市", "一関市", "遠野市", "釜石市", "二戸市", "八幡平市", "岩手郡", "奥州市"]),

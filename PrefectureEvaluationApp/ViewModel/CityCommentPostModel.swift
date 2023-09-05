@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseStorage
 import FirebaseFirestore
+import FirebaseAuth
 
 enum CityCommetPostViewState{
     case isLoading
@@ -15,32 +16,45 @@ enum CityCommetPostViewState{
     case data
 }
 
-
-
 class CityCommentPostViewModel: NSObject ,ObservableObject {
     
-    @Published var commentPostList : Array<Comment> = []
-    @Published var star: Int = 0
+     let userID = Auth.auth().currentUser?.uid
+    @Published var star: Double = 0.0
     @Published var errorText: String = ""
     @Published var goodComment:String = ""
     @Published var badComment:String = ""
+    @Published var reviewScoreList : Array<Int> = [0,0,0,0,0]
     @Published var selectedPhotos = [UIImage]()
     
     private var db = Firestore.firestore()
     
-    func addCommentData(commentData : Comment) async throws  {
-        if(commentData.goodComment.isEmpty){
+    func addComment(ReviewData : Review)  throws  {
+        if(ReviewData.goodComment.isEmpty){
             errorText = "良いところの欄が入力されてません。"
             throw NSError(domain: "error", code: -1, userInfo: nil)
         }
-        if(commentData.badComment.isEmpty){
+        if(ReviewData.badComment.isEmpty){
             errorText = "悪いところの欄が入力されていません。"
             throw NSError(domain: "error", code: -1, userInfo: nil)
         }
-        try await db.collection("comment").addDocument(data: ["star": commentData.star, "goodOfficeComment": commentData.goodComment, "badComment":  commentData.badComment])
+         db.collection("comments").addDocument(data: ["star": ReviewData.star,"scoreList": [ReviewData.scoreList] ,"goodComment": ReviewData.goodComment, "badComment":  ReviewData.badComment])
     }
     
-   func addImageData(){
-       
+    func upLoadImage(images:Array<UIImage>) async throws{
+        for ( index ,image) in images.enumerated() {
+            guard let uploadImage = image.jpegData(compressionQuality: 0.5) else {
+                break
+            }
+            let path = "gs://prefectureevaluation.appspot.com"
+            let storage = Storage.storage()
+            let reference = storage.reference(forURL: path).child("comment/\(getUserId())/images/image\(index).jpg")
+            
+            _ =  try await reference.putDataAsync( uploadImage,metadata: nil, onProgress: nil)
+            
+        }
     }
+    private func getUserId() -> String {
+        return Auth.auth().currentUser!.uid
+    }
+    
 }
