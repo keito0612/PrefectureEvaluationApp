@@ -36,14 +36,14 @@ struct RadarChart: UIViewRepresentable {
         xAxis.valueFormatter = chartFormatter as AxisValueFormatter
         xAxis.xOffset = 0
         xAxis.yOffset = 0
-        xAxis.labelTextColor = UIColor(cgColor: UIColor.white.cgColor)
+        xAxis.labelTextColor = UIColor(cgColor: UIColor.black.cgColor)
         xAxis.drawLabelsEnabled = true
         xAxis.setLabelCount(5, force: true)
         
 
         let yAxis = chartView.yAxis
         yAxis.labelFont = .systemFont(ofSize: 15, weight: .light)
-        yAxis.labelTextColor = UIColor(cgColor: UIColor.white.cgColor)
+        yAxis.labelTextColor = UIColor(cgColor: UIColor.black.cgColor)
         yAxis.axisMinimum = 0
         yAxis.axisMaximum = 5
         yAxis.setLabelCount(5, force: true)

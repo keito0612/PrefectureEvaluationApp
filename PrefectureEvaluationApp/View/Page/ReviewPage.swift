@@ -13,17 +13,18 @@ struct ReViewPage: View {
     let prefectureName : String
     let citys : Array<String>
     @State private var gestureState : CGFloat = 300
+    @State var scores:Array<Int> = [0,0,0,0,0]
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     var body: some View {
         NavigationStack{
             ZStack{
-                Color.gray.opacity(0.2).edgesIgnoringSafeArea(.all)
+                Color.white
                 ScrollView {
                     VStack(){
-                        Text(prefectureName).font(.system(size: 30)).foregroundColor(.white).padding(.top, 50)
-                        
-                        StarReviewView(star: 3).padding()
-                        ReviewRaderView().shadow(radius: 20)
+                        ImageWithStarWithNameView(prefectureName: prefectureName, star: 5.0)
+                        Divider()
+                        ReviewRaderView(scores: $scores)
+                        Divider()
                         CitysButtom(citys: citys)
                         Spacer()
                     }.padding()
@@ -33,9 +34,27 @@ struct ReViewPage: View {
     }
 }
 
-private struct ReviewRaderView: View{
+private struct ImageWithStarWithNameView :View{
+    let prefectureName:String
+   @State var star:Double
     var body: some View{
-        RadarChart().frame(width: 370,height: 400) .background(.ultraThinMaterial).cornerRadius(24)
+        VStack{
+            Image("Noimage").resizable() .scaledToFill().frame(width: 400,height: 250).clipShape(Rectangle())
+            VStack(alignment: .leading){
+                HStack{
+                    Text(prefectureName).font(.system(size: 30)).foregroundColor(.black).padding()
+                    Spacer()
+                }
+                StarReviewView(star: star)
+            }
+        }
+    }
+}
+
+private struct ReviewRaderView: View{
+    @Binding var scores:Array<Int>
+    var body: some View{
+        RadarChart(scores: $scores).frame(height: 400) .background(.white)
     }
 }
 private struct CitysButtom: View{
@@ -44,12 +63,12 @@ private struct CitysButtom: View{
     @State var isPresented :Bool = false
     var body :some View{
             VStack {
-                    Text("市ごとの評価").foregroundColor(.white).padding()
+                Text("市ごとの評価").foregroundColor(.black).padding()
                     ScrollView {
                         LazyVGrid (columns: columns) {
-                            ForEach(0 ..< citys.count ) { index in
+                            ForEach(0 ..< citys.count, id: \.self  ) { index in
                                 NavigationLink(destination: CityReviewViewPage(cityName: self.citys[index])) {
-                                    Text(citys[index]).frame(width: 130,height: 50 ).padding(5).overlay(
+                                    Text(citys[index]).frame(width: 150,height: 60 ).padding(5).overlay(
                                       RoundedRectangle(cornerRadius: 20)
                                           .stroke(Color.blue, lineWidth: 3)
                                     )
@@ -57,25 +76,21 @@ private struct CitysButtom: View{
                             }.navigationBarTitleDisplayMode(.inline)
                         }
                     }
-            }.font(.system(size: 20)).frame(width: 370,height: 250).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20).padding(.all)
+            }.font(.system(size: 20)).frame(width: 370,height: 250)
         }
     }
     
-    private struct StarReviewView: View{
-        let star: Int
-        var body: some View{
-            VStack {
-                Text("評価").foregroundColor(.white).font(.system(size: 20)).padding(.bottom,5)
-                HStack{
-                    ForEach(0..<5){ index in
-                        Image(systemName:  index < star ?  "star.fill" : "star" ).foregroundColor(Color.yellow).font(.system(size: 30))
-                    }
-                }
-            }.frame(width: 370, height: 80).background(.ultraThinMaterial).cornerRadius(24).shadow(radius: 20)
-        }
+private struct StarReviewView: View{
+    @State var star: Double
+    var body: some View{
+        HStack(){
+            RatingView($star).foregroundColor(.yellow)
+            Text(star.description).font(.system(size: 30)).padding(.leading)
+            Spacer()
+        }.padding(.leading)
+        
     }
-    
-    
+}
     
 struct ReViewPage_Previews: PreviewProvider {
         static var previews: some View {

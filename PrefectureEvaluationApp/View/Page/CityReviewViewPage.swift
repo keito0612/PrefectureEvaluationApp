@@ -16,23 +16,22 @@ struct CityReviewViewPage: View {
     @Environment(\.dismiss) var dismiss
     @State var isShowAlert = false
     @State var errorMessage:String = ""
+    @State var scores:Array<Int> = [0,0,0,0,0]
     
     init(cityName: String?) {
         self.cityName = cityName
-        UITableView.appearance().backgroundColor = UIColor(Color.red)
     }
     
     var body: some View {
         NavigationStack {
             ZStack{
-                Color.gray.opacity(0.2).edgesIgnoringSafeArea(.all)
+                Color.white
                 ScrollView {
                     VStack{
-                        Text(cityName!).font(.system(size: 30)).foregroundColor(.white).padding(.top, 50)
-                        StarReviewView(star: 3).padding()
-                        ReviewRaderView().shadow(radius: 20)
-                        CommnetView()
-                        Spacer()
+                        ImageWithStarWithNameView(cityName: cityName!, star: 5.0)
+                        Divider()
+                        ReviewRaderView(scores: $scores)
+                        
                     }.task {
                         do{
                             try await cityReviewViewModel.getCityData()
@@ -48,7 +47,8 @@ struct CityReviewViewPage: View {
                 if(cityReviewViewModel.cityReviewViewState == .isLoading){
                     LoadingView(scaleEffect: 3)
                 }
-            }.errorAlert(title: "エラー", message: errorMessage, isPresented: $isShowAlert ).navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.gray.opacity(0.2),for: .navigationBar).navigationBarItems(leading: Button(action:{
+            }.customAlert(title: "エラー", message: errorMessage, isPresented: $isShowAlert, dissmissCount: 0, alertType: cityReviewViewModel.alertType ).navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.white,for: .navigationBar).navigationBarItems(leading: Button(action:{
+                
                 dismiss()
             }){ Text("戻る")},trailing: NavigationLink {
                 // 遷移先のビューを指定
@@ -62,20 +62,28 @@ struct CityReviewViewPage: View {
 }
 
 
-
-
-private struct StarReviewView: View{
-    let star: Int
+private struct ImageWithStarWithNameView :View{
+    let cityName:String
+   @State var star:Double
     var body: some View{
-        VStack {
-            Text("評価").foregroundColor(.white).font(.system(size: 20)).padding(.bottom,5)
-          StarView(star: star, size: 30)
-        }.frame(width: 370, height: 80).background(.thinMaterial).cornerRadius(24).shadow(radius: 20)
+        VStack{
+            Image("Noimage").resizable() .scaledToFill().frame(width: 400,height: 250).clipShape(Rectangle())
+            VStack(alignment: .leading){
+                HStack{
+                    Text(cityName).font(.system(size: 30)).foregroundColor(.black).padding()
+                    Spacer()
+                }
+                StarReviewView(star: star)
+            }
+        }
     }
 }
+
+
 private struct ReviewRaderView: View{
+    @Binding var scores:Array<Int>
     var body: some View{
-        RadarChart().frame(width: 370,height: 400) .background(.ultraThinMaterial).cornerRadius(24)
+        RadarChart(scores: $scores).frame(height: 400) .background(.white)
     }
 }
 
@@ -89,6 +97,19 @@ private struct CommnetView :View{
     }
     
 }
+
+private struct StarReviewView: View{
+    @State var star: Double
+    var body: some View{
+        HStack(){
+            RatingView($star).foregroundColor(.yellow)
+            Text(star.description).font(.system(size: 30)).padding(.leading)
+            Spacer()
+        }.padding(.leading)
+        
+    }
+}
+
 
 private struct CommnentListView :View{
     let commentList :Array<City>

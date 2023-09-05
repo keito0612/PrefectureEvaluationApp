@@ -8,26 +8,29 @@
 import SwiftUI
 
 struct CityCommentPostViewPage: View {
-    @State var star:Int = 0
-    @State var comment:String = ""
     @State var selectedTad: Int = 0
     @StateObject var cityCommentPostViewModel:CityCommentPostViewModel = CityCommentPostViewModel()
+    
     let pageList:Array<String> = ["口コミ","写真"]
     var body: some View {
         NavigationStack {
-                ZStack {
-                    Color.gray.opacity(0.2).edgesIgnoringSafeArea(.bottom)
-                    VStack {
-                        TopTabView(list: pageList, selectedTab: $selectedTad)
-                     ScrollView {
-                         if(selectedTad == 0){
-                             CityCommentScreenView()
-                         }else{
-                             PhotoPostScreenView( selectedPhotos: $cityCommentPostViewModel.selectedPhotos )
-                         }
+            ZStack {
+                Color.gray.opacity(0.2).edgesIgnoringSafeArea(.bottom)
+                VStack {
+                    TopTabView(list: pageList, selectedTab: $selectedTad)
+                    ScrollView {
+                        if(selectedTad == 0){
+                            CityCommentScreenView(cityCommentPostModel: cityCommentPostViewModel)
+                        }else{
+                            PhotoPostScreenView(cityCommentPostModel: cityCommentPostViewModel)
+                        }
                     }
-                    }.navigationBarTitle("投稿")    .navigationBarTitleDisplayMode(.inline)
-                }
+                }.navigationBarTitle("投稿")    .navigationBarTitleDisplayMode(.inline) .navigationBarItems(
+                    trailing: Button("投稿") {
+                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                    }
+                )
+            }
         }
     }
 }
@@ -71,85 +74,8 @@ private struct TopTabView: View {
 
 
 
-private struct StarReviewView: View{
-   @Binding var star: Int
-    var body: some View{
-            VStack {
-                Text("あなたの評価を教えてください").foregroundColor(.white).font(.system(size: 20)).padding(.bottom,15)
-                HStack{
-                    StarMinusButton(star: $star)
-                    StarView(star: star, size: 30)
-                    StarPlusButton(star: $star)
-                }
-                Divider()
-            }
-        }
-}
 
 
-
-private struct RaderChartView : View{
-    
-    var body : some View{
-        RadarChart().frame(height: 400)
-        Divider()
-        
-    }
-}
-
-
-private struct StarPlusButton :View {
-    @Binding var star:Int
-    
-    var body: some View{
-        Button(action: {
-            if( star < 5){
-                star += 1
-            }
-        } ) {
-            Image(systemName: "plus.circle")
-                .resizable()
-                .frame(width: 40, height: 40)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .foregroundColor(.white)
-        }
-    }
-}
-
-
-private struct ReviewScoreBar: View{
-    var body: some View{
-        Text("")
-    }
-}
-
-private struct StarMinusButton :View {
-    @Binding var star:Int
-    
-    var body: some View{
-        Button(action: {
-            if( 0 < star){
-                self.star -= 1
-            }
-        } ) {
-            Image(systemName: "minus.circle")
-                .resizable()
-                .frame(width: 40, height: 40)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .foregroundColor(.white)
-        }
-    }
-}
-
-private struct CityCommentTextField : View {
-    @Binding var comment:String
-    var body: some View{
-        TextEditorWithPlaceholder(text: $comment , hintText: "良いところ")
-        TextEditorWithPlaceholder(text: $comment, hintText:"悪いところ")
-    }
-}
 
 struct CityCommentViewPage_Previews: PreviewProvider {
     static var previews: some View {
