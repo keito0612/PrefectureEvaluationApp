@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct RatingView: View {
-    init(_ rating: Binding<Double>, maxRating: Int = 5) {
-        _rating = rating
+    init(_ rating: Double, maxRating: Int = 5) {
+        self.rating = rating
         self.maxRating = maxRating
     }
 
     let maxRating: Int
-    @Binding var rating: Double
+    var rating: Double
     @State private var starSize: CGSize = .zero
     @State private var controlSize: CGSize = .zero
     @GestureState private var dragging: Bool = false

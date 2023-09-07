@@ -44,6 +44,25 @@ public enum AuthError: Error {
             return "エラーが起きました。"
         }
     }
+    var message: String
+    {
+        switch self {
+        case .networkError:
+            return "電波が良い所でもう一度お願いします。"
+        case .weakPassword:
+            return ""
+        case .wrongPassword:
+            return ""
+        case .userNotFound:
+            return ""
+        case .invalidEmail:
+            return "正しいメールアドレスの形式で入力してください。"
+        case .emailAlreadyInUse:
+            return "別のアカウントでお試しください"
+        case .unknown:
+            return "何かしらのエラーが発生しました。"
+        }
+    }
 }
 
 
@@ -101,6 +120,34 @@ public enum FireStoreError: Error {
             return "認識されていないユーザを使っています。"
         }
     }
+    var message: String {
+        switch self {
+        case .cancelled:
+            return "操作がキョンセルされました。"
+        case .unknown:
+            return "もう一度お願いします。"
+        case .invalidArgument:
+            return "無効な引数が使われています。"
+        case .notFound:
+            return "ドキュメントを作成してください。"
+        case .alreadyExists:
+            return "別のドキュメントを作成してください"
+        case .permissionDenied:
+            return "Firebaseのセキュリティーコードを確認てください。"
+        case .aborted:
+            return "何らかのエラーにより処理が中断されました。"
+        case .outOfRange:
+            return "有効な範囲で実行してください。"
+        case .unimplemented:
+            return ""
+        case .unavailable:
+            return ""
+        case .internal:
+            return ""
+        case .unauthenticated:
+            return "認識してくからお使いください。"
+        }
+    }
 }
 
 
@@ -124,6 +171,27 @@ class FirebaseErrorHandler{
             return AuthError.unknown.title
         }
     }
+    
+    static  func authErrorMessageToString(error: AuthErrorCode.Code) -> String {
+        switch error {
+        case .networkError:
+            return AuthError.networkError.message
+        case .weakPassword:
+            return AuthError.weakPassword.message
+        case .wrongPassword:
+            return AuthError.wrongPassword.message
+        case .userNotFound:
+            return AuthError.userNotFound.message
+        case .invalidEmail:
+            return  AuthError.invalidEmail.message
+        case .emailAlreadyInUse:
+            return  AuthError.emailAlreadyInUse.message
+        default:
+            return AuthError.unknown.message
+        }
+    }
+    
+    
     
     static func FireStoreErrorToString(error: FirestoreErrorCode.Code)  -> String {
         switch error {
@@ -156,4 +224,40 @@ class FirebaseErrorHandler{
             
         }
     }
+    
+    
+    static func FireStoreErrorMessageToString(error: FirestoreErrorCode.Code)  -> String {
+        switch error {
+        case .cancelled:
+            return FireStoreError.cancelled.message
+        case .unknown:
+            return FireStoreError.unknown.message
+        case .invalidArgument:
+            return FireStoreError.invalidArgument.message
+        case .notFound:
+            return FireStoreError.notFound.message
+        case .alreadyExists:
+            return FireStoreError.alreadyExists.message
+        case .permissionDenied:
+            return FireStoreError.permissionDenied.message
+        case .aborted:
+            return FireStoreError.aborted.message
+        case .outOfRange:
+            return FireStoreError.outOfRange.message
+        case .unimplemented:
+            return FireStoreError.unimplemented.message
+        case .internal:
+            return  FireStoreError.internal.message
+        case .unavailable:
+            return FireStoreError.unavailable.message
+        case .unauthenticated:
+            return FireStoreError.unauthenticated.message
+        default:
+            return ""
+            
+        }
+    }
+
+    
+    
 }

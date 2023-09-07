@@ -11,6 +11,12 @@ import FirebaseStorage
 import UIKit
 import FirebaseFirestore
 
+enum AlertType {
+    case warning
+    case error
+}
+
+
 enum ProfileSettingViewState{
     case isLoading
     case data

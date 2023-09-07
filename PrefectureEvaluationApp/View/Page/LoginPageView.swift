@@ -9,7 +9,7 @@ import SwiftUI
 
 struct LoginPageView: View {
     @Environment(\.dismiss) var dismiss
-    @ObservedObject var model = LoginModel()
+    @StateObject var model = LoginModel()
     var body: some View {
         NavigationStack {
             ZStack {
@@ -19,7 +19,17 @@ struct LoginPageView: View {
                     SinUpTextButton()
                 }.frame(width: 350, height: 400).background(Color.blue).cornerRadius(30)
                     .padding()
-                .customAlert(title: model.alertType == .error ?  "エラーが発生しました。": "ログインが完了しました。" , message: model.alertMessage, isPresented: $model.isShowAlert, dissmissCount: 1, alertType: model.alertType )
+                    .alert(isPresented: $model.isShowAlert) {
+                        switch model.alertType {
+                        case .warning:
+                            return Alert(title: Text(model.alertTitle),
+                                         message:  Text(model.alertMessage),
+                                         dismissButton: .default(Text("OK")))
+                        case .error:
+                            return Alert(title: Text(model.alertTitle),message: Text(model.alertMessage),
+                                       dismissButton: .default(Text("OK")))
+                        }
+                      }
                 if(model.loginModelState == .isLoading){
                     LoadingView(scaleEffect: 2.0)
                 }
@@ -65,7 +75,6 @@ struct LoginButton :View{
 }
 
 private struct SinUpTextButton :View {
-    @State var isPresented:Bool = false
     
     var body: some View{
         NavigationLink(destination:SinUpViewPage() ) {

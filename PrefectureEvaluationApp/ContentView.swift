@@ -20,26 +20,11 @@ struct ContentView: View {
                         Image(systemName: "map.fill")
                         Text("マップ")
                     }.tag(0)
-                
-                Text("Bookmark Tab")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .tabItem {
-                        Image(systemName: "bookmark.circle.fill")
-                        Text("Bookmark")
-                    }.tag(1)
-                
-                Text("Video Tab")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .tabItem {
-                        Image(systemName: "video.circle.fill")
-                        Text("Video")
-                    }.tag(2)
-                
-                ProfileViewPage()
+                MyPageViewPage()
                     .tabItem {
                         Image(systemName: "person.crop.circle")
-                        Text("プロフィール")
-                    }.tag(3)
+                        Text("マイページ")
+                    }.tag(1)
             }.background(Color.white)
         }
     }
@@ -47,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environmentObject(CityCommentPostViewModel())
+        ContentView()
     }
 }

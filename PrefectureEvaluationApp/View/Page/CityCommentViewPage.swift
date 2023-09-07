@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CityCommentPostViewPage: View {
     @State var selectedTad: Int = 0
-    @StateObject var cityCommentPostViewModel:CityCommentPostViewModel = CityCommentPostViewModel()
+    @StateObject var model:CityCommentPostViewModel = CityCommentPostViewModel()
     
     let pageList:Array<String> = ["口コミ","写真"]
     var body: some View {
@@ -20,9 +20,9 @@ struct CityCommentPostViewPage: View {
                     TopTabView(list: pageList, selectedTab: $selectedTad)
                     ScrollView {
                         if(selectedTad == 0){
-                            CityCommentScreenView(cityCommentPostModel: cityCommentPostViewModel)
+                            CityCommentScreenView( model: model)
                         }else{
-                            PhotoPostScreenView(cityCommentPostModel: cityCommentPostViewModel)
+                            PhotoPostScreenView(model: model)
                         }
                     }
                 }.navigationBarTitle("投稿")    .navigationBarTitleDisplayMode(.inline) .navigationBarItems(

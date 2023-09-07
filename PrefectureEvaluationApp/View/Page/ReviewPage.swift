@@ -81,10 +81,10 @@ private struct CitysButtom: View{
     }
     
 private struct StarReviewView: View{
-    @State var star: Double
+     let star: Double
     var body: some View{
         HStack(){
-            RatingView($star).foregroundColor(.yellow)
+            RatingView(star).foregroundColor(.yellow)
             Text(star.description).font(.system(size: 30)).padding(.leading)
             Spacer()
         }.padding(.leading)
