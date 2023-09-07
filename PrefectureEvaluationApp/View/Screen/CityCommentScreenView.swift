@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct CityCommentScreenView: View {
-    @State var star:Int = 0
-    @State var comment:String = ""
-    @ObservedObject  var cityCommentPostModel:CityCommentPostViewModel = CityCommentPostViewModel()
-    
+   
+    @ObservedObject var model:CityCommentPostViewModel
+    @FocusState var isKeybordOn :Bool
     
     var body: some View {
         VStack{
-            StarReviewView(star: $star ).padding(.top,10)
-            RaderChartView()
-            CityCommentTextField(goodComment: $cityCommentPostModel.goodComment, badComment:  $cityCommentPostModel.badComment)
+            StarReviewView(star:model.star ).padding(.top,10)
+            RaderChartView(scores: $model.reviewScoreList)
+            ScoreListView(star: $model.star, scores: $model.reviewScoreList ).padding(.bottom,20)
+            Divider()
+            CityCommentTextField(goodComment: $model.goodComment, badComment:  $model.badComment,isKeybordOn: _isKeybordOn)
             Spacer()
         }
     }
@@ -26,92 +27,65 @@ struct CityCommentScreenView: View {
 
 
 private struct StarReviewView: View{
-   @Binding var star: Int
+    let star: Double
     var body: some View{
-            VStack {
-                Text("あなたの評価を教えてください").foregroundColor(.white).font(.system(size: 20)).padding(.bottom,15)
-                HStack{
-                    StarMinusButton(star: $star)
-                    StarView(star: star, size: 30)
-                    StarPlusButton(star: $star)
-                }
-                Divider()
+        VStack {
+            Text("あなたの評価を教えてください").foregroundColor(.white).font(.system(size: 20))
+            HStack{
+                RatingView(star).foregroundColor(.yellow)
             }
+            Text("\(String(format: "%.1f", star)) / 5.0").foregroundColor(.white).font(.system(size: 25))
+            Divider()
         }
+    }
 }
 
 
 
 private struct RaderChartView : View{
-    
+     @Binding var scores :Array<Int>
     var body : some View{
-        RadarChart().frame(height: 400)
-        Divider()
+        RadarChart(scores: $scores).frame(height: 400)
         
     }
 }
 
-
-private struct StarPlusButton :View {
-    @Binding var star:Int
-    
+private struct ScoreListView :View{
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    @Binding var star: Double
+    @Binding var scores:Array<Int>
+    let scoresTitle:Array<String> = ["役所の対応", "交通機関", "住みやすさ", "子育て", "市の制度"]
     var body: some View{
-        Button(action: {
-            if( star < 5){
-                star += 1
+        LazyVGrid (columns: columns)
+        {
+            ForEach(0 ..< scores.count,id: \.self) { index in
+                Menu{
+                    ForEach(0 ..< scores.count + 1 ,id: \.self){ score in
+                        Button("\(score)", action: {
+                            scores[index] = score
+                            star =  averageScore()
+                        })
+                    }
+                }label:{
+                    Text(scoresTitle[index]).frame(width:100,height: 50).background(Color.white).cornerRadius(20)
+                }
             }
-        } ) {
-            Image(systemName: "plus.circle")
-                .resizable()
-                .frame(width: 40, height: 40)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .foregroundColor(.white)
         }
     }
-}
-
-
-private struct ReviewScoreBar: View{
-    var body: some View{
-        Text("")
+    func averageScore() -> Double {
+        let averageScore = Double(scores[0] + scores[1] + scores[2] + scores[3] + scores[4]) / 5
+        return  averageScore
     }
-}
-
-private struct StarMinusButton :View {
-    @Binding var star:Int
     
-    var body: some View{
-        Button(action: {
-            if( 0 < star){
-                self.star -= 1
-            }
-        } ) {
-            Image(systemName: "minus.circle")
-                .resizable()
-                .frame(width: 40, height: 40)
-                .background(Color.blue)
-                .clipShape(Circle())
-                .foregroundColor(.white)
-        }
-    }
 }
 
 private struct CityCommentTextField : View {
     @Binding var goodComment:String
     @Binding var badComment:String
-    
+    @FocusState var isKeybordOn: Bool
     var body: some View{
-        TextEditorWithPlaceholder(text: $goodComment , hintText: "良いところ")
-        TextEditorWithPlaceholder(text: $badComment, hintText:"悪いところ")
+        TextEditorWithPlaceholder(text: $goodComment,  hintText: "良いところ", isKeybordOn: _isKeybordOn)
+        TextEditorWithPlaceholder(text: $badComment, hintText:"悪いところ", isKeybordOn: _isKeybordOn)
     }
 }
 
-
-
-
-struct CityCommentScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        CityCommentScreenView()
-    }
-}

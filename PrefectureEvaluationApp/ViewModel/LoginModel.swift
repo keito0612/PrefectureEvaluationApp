@@ -21,36 +21,41 @@ class LoginModel : ObservableObject{
   @Published var password:String = ""
   @Published var isShowAlert :Bool = false
   @Published var loginModelState: LoginModelState = .data
+    @Published var alertTitle: String = ""
   @Published var alertMessage : String = ""
   @Published var alertType: AlertType = .warning
     @MainActor
     func login() async throws{
+     do{
         loginModelState = .isLoading
-        if(email.isEmpty){
+        if(email == ""){
             alertType = .error
             isShowAlert = true
-            alertMessage = "メールアドレスを入力しください。"
-            loginModelState = .data
+            alertTitle = "メールアドレスを入力しください。"
+            alertMessage = ""
+            loginModelState = .error
             
         }
-        if(password.isEmpty){
+        if(password == ""){
             alertType = .error
             isShowAlert = true
-            alertMessage = "パスワードを入力してください。"
-            loginModelState = .data
+            alertTitle = "パスワードを入力してください。"
+            alertMessage = ""
+            loginModelState = .error
         }
-        do{
             try await Auth.auth().signIn(withEmail: email , password: password)
             loginModelState = .data
             alertType = .warning
             isShowAlert = true
-            alertMessage = "ログインが完了しました。"
+            alertTitle = "ログインが完了しました。"
+            alertMessage = ""
         }catch{
             alertType = .error
             isShowAlert = true
             loginModelState = .error
             let errorCode = AuthErrorCode.Code(rawValue: error._code)
-            alertMessage = FirebaseErrorHandler.authErrorToString(error: errorCode!)
+            alertTitle = FirebaseErrorHandler.authErrorToString(error: errorCode!)
+            alertMessage = FirebaseErrorHandler.authErrorMessageToString(error: errorCode!)
         }
         
     }

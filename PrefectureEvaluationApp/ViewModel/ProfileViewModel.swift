@@ -20,9 +20,9 @@ enum ProfileViewModelState{
 
 
 class ProfileViewModel : ObservableObject{
-   @Published  var userData: User = User(name: "", likeNumber: 0, photo: "", visitedPrefectureNumber: 0, evaluationNumber: 0)
+    @Published  var userData: User = User(name: "", likeNumber: 0, visitedPrefectureNumber: 0, evaluationNumber: 0, photo: "")
    @Published var profileViewModelState :ProfileViewModelState = .isLoading
-    
+    @Published var reviewList:Array<Review> = []
     private let db = Firestore.firestore()
     let userId = Auth.auth().currentUser?.uid
     @MainActor
@@ -39,8 +39,8 @@ class ProfileViewModel : ObservableObject{
                         let visitedPrefectureNumber = doc["visitedPrefectureNumber"] as? Int ?? 0
                         let evaluationNumber = doc["evaluationNumber"] as? Int ?? 0
                         let photo = doc["photo"] as? String ?? ""
-                        return User(name: name , likeNumber: likeNumber, photo: photo,visitedPrefectureNumber: visitedPrefectureNumber, evaluationNumber: evaluationNumber )
-                   }!
+                        return User(name: name , likeNumber: likeNumber, visitedPrefectureNumber: visitedPrefectureNumber,evaluationNumber: evaluationNumber, photo: photo)
+                    }!
                 }
             }
             self.profileViewModelState = .data

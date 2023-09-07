@@ -47,7 +47,7 @@ struct CityReviewViewPage: View {
                 if(cityReviewViewModel.cityReviewViewState == .isLoading){
                     LoadingView(scaleEffect: 3)
                 }
-            }.customAlert(title: "エラー", message: errorMessage, isPresented: $isShowAlert, dissmissCount: 0, alertType: cityReviewViewModel.alertType ).navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.white,for: .navigationBar).navigationBarItems(leading: Button(action:{
+            }.navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.white,for: .navigationBar).navigationBarItems(leading: Button(action:{
                 
                 dismiss()
             }){ Text("戻る")},trailing: NavigationLink {
@@ -99,10 +99,10 @@ private struct CommnetView :View{
 }
 
 private struct StarReviewView: View{
-    @State var star: Double
+    let star: Double
     var body: some View{
         HStack(){
-            RatingView($star).foregroundColor(.yellow)
+            RatingView(star).foregroundColor(.yellow)
             Text(star.description).font(.system(size: 30)).padding(.leading)
             Spacer()
         }.padding(.leading)
@@ -130,7 +130,7 @@ private struct CommentListTile :View{
     }
     var body: some View{
         VStack{
-            StarView(star: cityData.star, size: 10)
+            StarReviewView(star: cityData.star)
             Text(cityData.comment)
         }
     }

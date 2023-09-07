@@ -12,7 +12,6 @@ import FirebaseCore
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication,
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        FirebaseApp.configure()
         return true
     }
 }
@@ -20,12 +19,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 
 @main
 struct PrefectureEvaluationApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var auth = AuthObserver()
     init(){
         FirebaseApp.configure()
     }
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(CityCommentPostViewModel())
+            ContentView() .environment(\.uid, auth.uid)
+                .environment(\.subscribedAuth, auth.isSubscribed)
         }
     }
 }

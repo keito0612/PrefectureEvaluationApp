@@ -10,6 +10,7 @@ import SwiftUI
 struct TextEditorWithPlaceholder: View {
      @Binding var text: String
      let hintText:String
+    @FocusState var isKeybordOn: Bool
      var body: some View {
          ZStack(alignment: .leading) {
              if text.isEmpty {
@@ -25,6 +26,7 @@ struct TextEditorWithPlaceholder: View {
              VStack {
                  TextEditor(text: $text).padding(.leading,15).padding(.trailing, 15)
                      .frame(minHeight: 150, maxHeight: 300)
+                     .focused($isKeybordOn)
                      .scrollContentBackground(.hidden)
                      .background(.white, in: RoundedRectangle(cornerRadius: 30.0))
                      .opacity(text.isEmpty ? 0.85 : 1)

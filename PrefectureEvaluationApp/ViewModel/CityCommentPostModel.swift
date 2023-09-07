@@ -29,15 +29,15 @@ class CityCommentPostViewModel: NSObject ,ObservableObject {
     private var db = Firestore.firestore()
     
     func addComment(ReviewData : Review)  throws  {
-        if(ReviewData.goodComment.isEmpty){
+        if(ReviewData.goodComment!.isEmpty){
             errorText = "良いところの欄が入力されてません。"
             throw NSError(domain: "error", code: -1, userInfo: nil)
         }
-        if(ReviewData.badComment.isEmpty){
+        if(ReviewData.badComment!.isEmpty){
             errorText = "悪いところの欄が入力されていません。"
             throw NSError(domain: "error", code: -1, userInfo: nil)
         }
-         db.collection("comments").addDocument(data: ["star": ReviewData.star,"scoreList": [ReviewData.scoreList] ,"goodComment": ReviewData.goodComment, "badComment":  ReviewData.badComment])
+        db.collection("comments").addDocument(data: ["star": ReviewData.star,"scoreList": [ReviewData.scoreList] ,"goodComment": ReviewData.goodComment ?? "", "badComment":  ReviewData.badComment ?? ""])
     }
     
     func upLoadImage(images:Array<UIImage>) async throws{

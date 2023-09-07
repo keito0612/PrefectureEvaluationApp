@@ -47,7 +47,7 @@ struct MapViewPage: View {
     
     struct MapViewPage_Previews: PreviewProvider {
         static var previews: some View {
-            MapViewPage().environmentObject(CityCommentPostViewModel())
+            MapViewPage()
         }
     }
 }
