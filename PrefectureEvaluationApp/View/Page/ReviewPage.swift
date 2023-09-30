@@ -13,7 +13,7 @@ struct ReViewPage: View {
     let prefectureName : String
     let citys : Array<String>
     @State private var gestureState : CGFloat = 300
-    @State var scores:Array<Int> = [0,0,0,0,0]
+    @State var scores:Array<Double> = [0,0,0,0,0]
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     var body: some View {
         NavigationStack{
@@ -25,7 +25,7 @@ struct ReViewPage: View {
                         Divider()
                         ReviewRaderView(scores: $scores)
                         Divider()
-                        CitysButtom(citys: citys)
+                        CitysButtom(prefectureName: prefectureName, citys: citys)
                         Spacer()
                     }.padding()
                 }.presentationDetents(   [.medium, .large]).presentationBackground(.ultraThinMaterial)
@@ -52,12 +52,13 @@ private struct ImageWithStarWithNameView :View{
 }
 
 private struct ReviewRaderView: View{
-    @Binding var scores:Array<Int>
+    @Binding var scores:Array<Double>
     var body: some View{
         RadarChart(scores: $scores).frame(height: 400) .background(.white)
     }
 }
 private struct CitysButtom: View{
+    let prefectureName : String
     let columns: [GridItem] = Array(repeating: .init(.flexible()), count: 2)
     let citys:Array<String>
     @State var isPresented :Bool = false
@@ -67,7 +68,7 @@ private struct CitysButtom: View{
                     ScrollView {
                         LazyVGrid (columns: columns) {
                             ForEach(0 ..< citys.count, id: \.self  ) { index in
-                                NavigationLink(destination: CityReviewViewPage(cityName: self.citys[index])) {
+                                NavigationLink(destination: CityReviewViewPage(cityName: self.citys[index], prefectureName: prefectureName)) {
                                     Text(citys[index]).frame(width: 150,height: 60 ).padding(5).overlay(
                                       RoundedRectangle(cornerRadius: 20)
                                           .stroke(Color.blue, lineWidth: 3)

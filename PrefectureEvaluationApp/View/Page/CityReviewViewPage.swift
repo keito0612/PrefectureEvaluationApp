@@ -12,65 +12,105 @@ import FirebaseFirestore
 struct CityReviewViewPage: View {
     
     let cityName:String?
-    @StateObject  var cityReviewViewModel  = CityReviewViewModel()
-    @Environment(\.dismiss) var dismiss
-    @State var isShowAlert = false
-    @State var errorMessage:String = ""
-    @State var scores:Array<Int> = [0,0,0,0,0]
+    let prefectureName: String?
+    @State var selectedTab:Int = 0
+    @StateObject  var model  = CityReviewViewModel()
     
-    init(cityName: String?) {
+    @Environment(\.dismiss) var dismiss
+    
+    init(cityName: String?,prefectureName:String?) {
         self.cityName = cityName
+        self.prefectureName = prefectureName
     }
+    
+    let pageList:Array<String> = ["評価","クチコミ"]
+    
     
     var body: some View {
         NavigationStack {
             ZStack{
                 Color.white
-                ScrollView {
-                    VStack{
-                        ImageWithStarWithNameView(cityName: cityName!, star: 5.0)
-                        Divider()
-                        ReviewRaderView(scores: $scores)
-                        
-                    }.task {
-                        do{
-                            try await cityReviewViewModel.getCityData()
-                            cityReviewViewModel.cityReviewViewState = .data
-                        }catch{
-                            isShowAlert = true
-                            cityReviewViewModel.cityReviewViewState = .error
-                            let errorCode = FirestoreErrorCode.Code(rawValue:  error._code )
-                           errorMessage = FirebaseErrorHandler.FireStoreErrorToString(error: errorCode!)
+                VStack {
+                    TopTabView(list: pageList, selectedTab: $selectedTab)
+                    
+                    if(selectedTab == 0){
+                        CityEvaluationViewScreen(model: model , cityName: cityName!)
+                    }else{
+                        CityReviewScreen(model: model)
+                    }
+                    } .padding().task {
+                        Task{
+                            try await model.getCityData(prefectureName: prefectureName!, cityName: cityName!)
+                            model.cityReviewViewState = .data
                         }
-                    }.padding()
-                }.presentationDetents(   [.medium, .large]).presentationBackground(.ultraThinMaterial)
-                if(cityReviewViewModel.cityReviewViewState == .isLoading){
+                    }
+                
+                if(model.cityReviewViewState == .isLoading){
                     LoadingView(scaleEffect: 3)
                 }
-            }.navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.white,for: .navigationBar).navigationBarItems(leading: Button(action:{
-                
-                dismiss()
-            }){ Text("戻る")},trailing: NavigationLink {
-                // 遷移先のビューを指定
-                CityCommentPostViewPage()
-            } label: {
-                // リンクボタンのテキストを指定
-                Text("投稿")
-            })
-        }.navigationBarBackButtonHidden(true)
+            }.presentationDetents(   [.medium, .large]).presentationBackground(.ultraThinMaterial).navigationBarBackButtonHidden(true)
+    
+        }.navigationBarTitle(Text(""), displayMode: .inline).toolbarBackground(Color.white,for: .navigationBar).navigationBarItems(leading: Button(action:{
+            
+            dismiss()
+        }){ Text("戻る")},trailing: NavigationLink {
+            // 遷移先のビューを指定
+            CityReviewPostViewPage(prefectureName: prefectureName!, cityName: cityName!)
+        } label: {
+            // リンクボタンのテキストを指定
+            Text("投稿")
+        })
+    }
+}
+    
+
+
+private struct TopTabView: View {
+    let list: [String]
+    @Binding var selectedTab: Int
+    
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(0 ..< list.count, id: \.self) { row in
+                Button(action: {
+                    withAnimation {
+                        selectedTab = row
+                    }
+                }, label: {
+                    VStack(spacing: 0) {
+                        HStack {
+                            Text(list[row])
+                                .font(Font.system(size: 18, weight: .semibold))
+                                .foregroundColor(Color.primary)
+                        }
+                        .frame(
+                            width: (UIScreen.main.bounds.width / CGFloat(list.count)),
+                            height: 48 - 3
+                        )
+                        Rectangle()
+                            .fill(selectedTab == row ? Color.blue : Color.clear)
+                            .frame(height: 3)
+                    }
+                    .fixedSize()
+                })
+            }
+        }
+        .frame(height: 48)
+        .background(Color.white)
+        .compositingGroup()
+        .shadow(color: .primary.opacity(0.2), radius: 3, x: 4, y: 4)
     }
 }
 
-
 private struct ImageWithStarWithNameView :View{
     let cityName:String
-   @State var star:Double
+   @Binding var star:Double
     var body: some View{
         VStack{
             Image("Noimage").resizable() .scaledToFill().frame(width: 400,height: 250).clipShape(Rectangle())
             VStack(alignment: .leading){
                 HStack{
-                    Text(cityName).font(.system(size: 30)).foregroundColor(.black).padding()
+                    Text(cityName).font(.system(size: 30)).foregroundColor(.black).padding(.leading)
                     Spacer()
                 }
                 StarReviewView(star: star)
@@ -80,8 +120,25 @@ private struct ImageWithStarWithNameView :View{
 }
 
 
+private struct ImageView :View{
+    let images:Array<Data>?
+    var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
+    var body: some View{
+        if(images == nil){
+            Image("Noimage").resizable() .scaledToFill().frame(width: 400,height: 250).clipShape(Rectangle())
+        }else{
+            LazyVGrid (columns: columns) {
+                ForEach(images!, id: \.self){ image in
+                    Image(uiImage: UIImage(data: image)!)
+                    
+                }
+            }
+        }
+    }
+}
+
 private struct ReviewRaderView: View{
-    @Binding var scores:Array<Int>
+    @Binding var scores:Array<Double>
     var body: some View{
         RadarChart(scores: $scores).frame(height: 400) .background(.white)
     }
@@ -103,7 +160,7 @@ private struct StarReviewView: View{
     var body: some View{
         HStack(){
             RatingView(star).foregroundColor(.yellow)
-            Text(star.description).font(.system(size: 30)).padding(.leading)
+            Text(String(format: "%.1f", star)).font(.system(size: 30)).padding(.leading)
             Spacer()
         }.padding(.leading)
         
@@ -138,7 +195,7 @@ private struct CommentListTile :View{
 
 struct CityReviewViewPage_Previews: PreviewProvider {
     static var previews: some View {
-        CityReviewViewPage(cityName: "福岡市")
+        CityReviewViewPage(cityName: "福岡市",prefectureName: "福岡県")
 
     }
 }

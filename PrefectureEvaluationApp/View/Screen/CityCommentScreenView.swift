@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CityCommentScreenView: View {
    
-    @ObservedObject var model:CityCommentPostViewModel
+    @ObservedObject var model:CityReviewPostViewModel
     @FocusState var isKeybordOn :Bool
     
     var body: some View {
@@ -43,7 +43,7 @@ private struct StarReviewView: View{
 
 
 private struct RaderChartView : View{
-     @Binding var scores :Array<Int>
+     @Binding var scores :Array<Double>
     var body : some View{
         RadarChart(scores: $scores).frame(height: 400)
         
@@ -53,7 +53,7 @@ private struct RaderChartView : View{
 private struct ScoreListView :View{
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     @Binding var star: Double
-    @Binding var scores:Array<Int>
+    @Binding var scores:Array<Double>
     let scoresTitle:Array<String> = ["役所の対応", "交通機関", "住みやすさ", "子育て", "市の制度"]
     var body: some View{
         LazyVGrid (columns: columns)
@@ -62,7 +62,7 @@ private struct ScoreListView :View{
                 Menu{
                     ForEach(0 ..< scores.count + 1 ,id: \.self){ score in
                         Button("\(score)", action: {
-                            scores[index] = score
+                            scores[index] = Double(score)
                             star =  averageScore()
                         })
                     }

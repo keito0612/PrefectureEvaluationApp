@@ -15,7 +15,7 @@ struct RadarChart: UIViewRepresentable {
     
     let activities = ["役所の対応", "交通機関", "住みやすさ", "子育て", "市の制度"]
     
-   @Binding var scores:Array<Int>
+   @Binding var scores:Array<Double>
     
     func makeUIView(context: Context) -> RadarChartView {
         let chartView = RadarChartView(frame: CGRect(x: 0, y: 0, width: 300, height: 100))

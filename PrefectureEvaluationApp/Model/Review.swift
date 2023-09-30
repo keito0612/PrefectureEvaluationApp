@@ -6,23 +6,19 @@
 //
 
 import Foundation
-struct Review:Identifiable, Codable,Hashable{
-    var id: String?
-    var userId :String?
+import Firebase
+import FirebaseFirestoreSwift
+
+
+struct Review: Identifiable,Codable,Hashable{
+    @DocumentID var id: String?
+    let userId :String?
     var star: Double
     var scoreList: Array<Double>?
     var goodComment:String?
     var badComment :String?
-    
-    init(id:String, userId:String,
-         star:Double,
-         scoreList:Array<Double>,  goodComment:String, badComment: String) {
-        self.id = id
-        self.userId = userId
-        self.star = star
-        self.scoreList = scoreList
-        self.goodComment  = goodComment
-        self.badComment = badComment
-    }
-    
+    var photos:Array<String>?
+    @ServerTimestamp var createdAt: Timestamp?
+    @ServerTimestamp var updatedAt: Timestamp?
+    var user : User?
 }

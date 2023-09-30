@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseFirestore
 import FirebaseAuth
+import FirebaseStorage
 
 public enum AuthError: Error {
     // ネットワークエラー
@@ -150,6 +151,48 @@ public enum FireStoreError: Error {
     }
 }
 
+public enum FirebaseStorageError: Error {
+    
+    case objectNotFound
+    
+    case unauthorized
+    
+    case cancelled
+    
+    case unknown
+    //エラーによって表示する文字を定義
+    var title: String {
+        switch self {
+        case .objectNotFound:
+            return "ファイルが存在しません。"
+        case .unauthorized:
+            return "ファイルにアクセスする権限がありません"
+        case .cancelled:
+            return "ダウンロードをキャンセルしました"
+        case .unknown:
+            return "不明なエラーが発生しました。サーバーの応答を調べてください。"
+        }
+    }
+    var message: String {
+        switch self {
+        case .objectNotFound:
+            return "保存先のファイルを確認してください。"
+        case .unauthorized:
+            return "セキュリティーコードを確認してください。"
+        case .cancelled:
+            return ""
+        case .unknown:
+            return "不明なエラーが発生しました。サーバーの応答を調べてください。。"
+        }
+    }
+}
+
+
+
+
+
+
+
 
 class FirebaseErrorHandler{
     
@@ -257,7 +300,26 @@ class FirebaseErrorHandler{
             
         }
     }
+    
+    
+    static func FirebaseStorageMessageToString(error:  StorageErrorCode) -> String {
+        switch error {
+        case .objectNotFound:
+            return FirebaseStorageError.objectNotFound.message
+        case .unauthorized:
+            return FirebaseStorageError.unauthorized.message
+        case .cancelled:
+            return FirebaseStorageError.cancelled.message
+        case .unknown:
+            return FirebaseStorageError.unknown.message
+        default:
+            return ""
+        }
+    }
 
+    
+    
+    
     
     
 }

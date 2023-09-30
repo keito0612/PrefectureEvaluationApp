@@ -7,8 +7,7 @@
 
 import Foundation
 import FirebaseFirestoreSwift
-struct User: Identifiable {
-    @DocumentID var id: String?
+struct User:Codable,Hashable{
     var name : String?
     var likeNumber:Int?
     var visitedPrefectureNumber: Int?
