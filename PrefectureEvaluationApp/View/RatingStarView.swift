@@ -15,7 +15,7 @@ struct RatingView: View {
 
     let maxRating: Int
     var rating: Double
-    @State private var starSize: CGSize = .zero
+    @State private  var starSize: CGSize = .zero
     @State private var controlSize: CGSize = .zero
     @GestureState private var dragging: Bool = false
 
@@ -40,8 +40,8 @@ struct RatingView: View {
                 }
             )
             .onPreferenceChange(StarSizeKey.self) { size in
-                starSize = size
-            }
+                         starSize = size
+                     }
             .onPreferenceChange(ControlSizeKey.self) { size in
                 controlSize = size
             }

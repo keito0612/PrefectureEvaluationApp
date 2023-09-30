@@ -9,7 +9,7 @@ import SwiftUI
 import PhotosUI
 
 struct PhotoPostScreenView: View {
-    @ObservedObject  var model:CityCommentPostViewModel 
+    @ObservedObject  var model:CityReviewPostViewModel 
     var columns: [GridItem] = Array(repeating: .init(.flexible()), count: 3)
     @State var selectedItems = [PhotosPickerItem]()
     
@@ -17,7 +17,7 @@ struct PhotoPostScreenView: View {
         LazyVGrid(columns: columns) {
             ForEach(0 ..< model.selectedPhotos.count , id: \.self){ index    in
                 ZStack{
-                    Image(uiImage: model.selectedPhotos[index]).resizable().padding([.leading,.trailing], 10).padding([.top, .bottom] , 10  ).frame( width: 150 ,height: 150)
+                    Image(uiImage: model.selectedPhotos[index]).resizable().padding([.leading,.trailing], 10).padding([.top, .bottom] , 10 ).frame( width: 150 ,height: 150)
                     Button(action: {
                         model.selectedPhotos.remove(at: index)
                     }){

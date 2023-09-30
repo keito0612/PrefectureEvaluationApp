@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "001A1DC0-6118-456C-A301-D5D9EB15B01D"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PrefectureEvaluationApp/View/Page/CityReviewViewPage.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "CityReviewViewPage"
-            landmarkType = "14">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "65F5E98A-FB8D-434A-8317-E1F564B14437"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -46,8 +30,8 @@
             filePath = "PrefectureEvaluationApp/ViewModel/CtiyReviewViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "12"
-            endingLineNumber = "12"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
             landmarkName = "CityReviewViewState"
             landmarkType = "13">
          </BreakpointContent>
@@ -78,8 +62,8 @@
             filePath = "PrefectureEvaluationApp/View/Page/CityReviewViewPage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -158,8 +142,8 @@
             filePath = "PrefectureEvaluationApp/ViewModel/ProfileSettingViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "ProfileSettingViewModel"
             landmarkType = "3">
          </BreakpointContent>
@@ -174,8 +158,8 @@
             filePath = "PrefectureEvaluationApp/ViewModel/CityCommentPostModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "upLoadImage(images:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -254,8 +238,8 @@
             filePath = "PrefectureEvaluationApp/View/Page/MyPageViewPage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "34"
-            endingLineNumber = "34"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "unknown"
             landmarkType = "0">
          </BreakpointContent>
@@ -270,8 +254,10 @@
             filePath = "PrefectureEvaluationApp/View/Page/MyPageViewPage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120">
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -336,6 +322,246 @@
             endingLineNumber = "38"
             landmarkName = "login()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61922EA7-FC00-445D-BA86-8C5C76AF0A48"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/ViewModel/CityReviewPostModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "CityReviewPostViewModel"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "961A9FDF-C9E1-49F3-89F9-589975BD7639"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/View/Page/CityCommentPostViewPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "8"
+            endingLineNumber = "8"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3D7CD6AA-609D-489C-8FF6-6E2C7BCE1D6B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/View/Page/CityReviewPostViewPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "CityReviewPostViewPage"
+            landmarkType = "14">
+            <Locations>
+               <Location
+                  uuid = "3D7CD6AA-609D-489C-8FF6-6E2C7BCE1D6B - 67cf43e6f9c9cdf3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrefectureEvaluationApp.CityReviewPostViewPage.uid.getter : Swift.Optional&lt;Swift.String&gt;"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/View/Page/CityReviewPostViewPage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "232">
+               </Location>
+               <Location
+                  uuid = "3D7CD6AA-609D-489C-8FF6-6E2C7BCE1D6B - 87bffdb27dfc7585"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "PrefectureEvaluationApp.CityReviewPostViewPage.init() -&gt; PrefectureEvaluationApp.CityReviewPostViewPage"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/View/Page/CityReviewPostViewPage.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "164">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "084A85D0-6FEF-4A9A-8CD4-6794580E0DA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/View/Page/CityReviewPostViewPage.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "5"
+            endingLineNumber = "5"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5BAE2EC5-B081-4978-9E1E-7521970012E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/ViewModel/CityReviewPostModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "upLoadImage(images:prefectureName:cityName:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8C162BD0-768A-4788-A528-08AC5BE33F18"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/ViewModel/CtiyReviewViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "getCityData(prefectureName:cityName:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8C162BD0-768A-4788-A528-08AC5BE33F18 - 4346c3ef002b0157"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for PrefectureEvaluationApp.CityReviewViewModel.getCityData(prefectureName: Swift.String, cityName: Swift.String) async throws -&gt; ()"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/ViewModel/CtiyReviewViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  uuid = "8C162BD0-768A-4788-A528-08AC5BE33F18 - 4346c3ef002b0157"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for PrefectureEvaluationApp.CityReviewViewModel.getCityData(prefectureName: Swift.String, cityName: Swift.String) async throws -&gt; ()"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/ViewModel/CtiyReviewViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "488">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3307D364-FE2D-4ADD-B2EF-C85961CCB321"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/View/Screen/CityReviewScreen.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "ReviewListTileView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "489FD8D8-DCB1-4BAB-B3C4-DDF7E3A10F31"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/ViewModel/MyPageViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getUserData()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "489FD8D8-DCB1-4BAB-B3C4-DDF7E3A10F31 - 3de705d06328d0e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; PrefectureEvaluationApp.User in PrefectureEvaluationApp.MyPageViewModel.getUserData() async throws -&gt; ()"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/ViewModel/MyPageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "489FD8D8-DCB1-4BAB-B3C4-DDF7E3A10F31 - 3de705d06328d0e5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.String, Any&gt;) -&gt; PrefectureEvaluationApp.User in PrefectureEvaluationApp.MyPageViewModel.getUserData() async throws -&gt; ()"
+                  moduleName = "PrefectureEvaluationApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/isobekeito/Xcode/PrefectureEvaluationApp/PrefectureEvaluationApp/ViewModel/MyPageViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5F95A293-7EA8-4CB9-877D-284C55B24A28"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PrefectureEvaluationApp/View/LoadingView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "LoadingView_Previews"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

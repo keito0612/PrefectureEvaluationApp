@@ -7,9 +7,14 @@
 
 import SwiftUI
 
-struct CityCommentPostViewPage: View {
+struct CityReviewPostViewPage: View {
+    let prefectureName:String
+    let cityName:String
     @State var selectedTad: Int = 0
-    @StateObject var model:CityCommentPostViewModel = CityCommentPostViewModel()
+    @StateObject var model:CityReviewPostViewModel = CityReviewPostViewModel()
+    @Environment(\.uid) var uid
+    @Environment(\.subscribedAuth) var isSubscribed
+    @Environment(\.dismiss) var dismiss
     
     let pageList:Array<String> = ["口コミ","写真"]
     var body: some View {
@@ -27,9 +32,27 @@ struct CityCommentPostViewPage: View {
                     }
                 }.navigationBarTitle("投稿")    .navigationBarTitleDisplayMode(.inline) .navigationBarItems(
                     trailing: Button("投稿") {
-                        /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/ /*@END_MENU_TOKEN@*/
+                        Task{
+                            try await model.addReview(prefectureName: prefectureName, cityName: cityName)
+                        }
                     }
                 )
+                .alert(isPresented: $model.isShowAlert) {
+                    switch model.alertType {
+                    case .warning:
+                        return Alert(title: Text(model.alertTitle),
+                                     message:  Text(model.alertMessage),
+                                     dismissButton: .default(Text("OK")){
+                            dismiss()
+                        })
+                    case .error:
+                        return Alert(title: Text(model.alertTitle),message: Text(model.alertMessage),
+                                   dismissButton: .default(Text("OK")))
+                    }
+                  }
+                if(model.cityReviewPostViewState == .isLoading){
+                    LoadingView(scaleEffect: 3)
+                }
             }
         }
     }
@@ -77,8 +100,8 @@ private struct TopTabView: View {
 
 
 
-struct CityCommentViewPage_Previews: PreviewProvider {
+struct CityReviewPostViewPage_Previews: PreviewProvider {
     static var previews: some View {
-        CityCommentPostViewPage()
+        CityReviewPostViewPage(prefectureName: "大分県", cityName: "大分市")
     }
 }
